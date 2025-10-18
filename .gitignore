@@ -1,2 +1,13 @@
 target/
 .env
+
+
+# Ignora arquivos de sistema do Windows
+*:Zone.Identifier
+
+# Ignora arquivos de log e temporários
+*.log
+*.zip
+
+# Ignora o diretório de construção do Maven
+target/
