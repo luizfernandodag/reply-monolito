@@ -1,1 +1,16 @@
 services:
+  postgres:
+    image: postgres:13
+    container_name: project_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: devuser
+      POSTGRES_PASSWORD: devpass
+      POSTGRES_DB: projectdb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./initdb:/docker-entrypoint-initdb.d   # scripts SQL de inicialização (opcional)
+    ports:
+      - "5434:5432"
+volumes:
+  pgdata:
